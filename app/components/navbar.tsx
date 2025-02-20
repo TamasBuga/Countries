@@ -7,14 +7,14 @@ function Navbar() {
       <div className="container flex flex-col md:flex-row items-center justify-between py-5 mx-2">
         <div className="flex flex-col md:flex-row items-center">
           <NavLink to={"/"} className={"flex items-center mb-5 md:mb-0"}>
-            <span className="text-xl font-black text-gray-900 select-none">
+            <span className="flex text-xl font-black text-gray-900 select-none">
               REST <span className="text-indigo-600">Explorer</span>
             </span>
           </NavLink>
-          <nav>
-            <NavLink to={"/"} end className={"mr-5 font-medium text-gray-600 hover:text-gray-200"}>Home</NavLink>
-            <NavLink to={"/about"} end className={"mr-5 font-medium text-gray-600 hover:text-gray-200"}>About</NavLink>
-            <NavLink to={"/countries"} end className={"mr-5 font-medium text-gray-600 hover:text-gray-200"}>Countries</NavLink>
+          <nav className="flex w-full justify-around items-center ml-8">
+            <NavLink to={"/"} end className={"w-20 font-medium text-gray-600 hover:underline hover:font-bold"}>Home</NavLink>
+            <NavLink to={"/about"} end className={"w-20 font-medium text-gray-600 hover:underline hover:font-bold"}>About</NavLink>
+            <NavLink to={"/countries"} end className={"w-20 font-medium text-gray-600 hover:underline hover:font-bold"}>Countries</NavLink>
           </nav>
         </div>
       </div>
