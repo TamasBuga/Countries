@@ -1,12 +1,16 @@
 import React from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import type { Route } from "./+types/countries";
-import { Link } from "react-router";
+import { Form, Link } from "react-router";
 
-export async function clientLoader() {
+export async function clientLoader({ params }: Route.ClientLoaderArgs) {
   const response = await fetch("https://restcountries.com/v3.1/all");
   if (!response.ok) throw new Error("Fetching error!");
   return response.json();
+}
+
+export async function clientAction({ params }: Route.ClientActionArgs) {
+  await fetch(`https://restcountries.com/v3.1/all`);
 }
 
 const fetchCountries = async () => {
@@ -23,6 +27,9 @@ function Countries({ loaderData }: Route.ComponentProps) {
 
   return (
     <section className="flex flex-wrap p-4 gap-4 bg-gray-400">
+      <Form method="delete">
+        <button type="submit">Delete</button>
+      </Form>
       {loaderData?.map((countrie: any, index: number) => {
         return (
           <div
